@@ -1,2 +1,2 @@
-print("Hallo Welt!")
+print("Hallo Docker!")
 print("Docker erfolgreich aufgesetzt.")
