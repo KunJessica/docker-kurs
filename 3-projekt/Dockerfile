@@ -2,10 +2,12 @@ FROM node
 
 WORKDIR /app
 
-COPY . /app
+COPY package.json /app
 
 # sorgt dafür, dass vor Start des Containers der Befehl ausgeführt wird
 RUN npm install 
+
+COPY . /app
 
 # Port, auf den der Container hören soll - Dokumentationszweck
 EXPOSE 3000
