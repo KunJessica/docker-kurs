@@ -20,7 +20,7 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - C:\Users\jessi\Documents\docker-kurs\8-projekt\backend\api.js:/backend/api.js
+      - C:\Users\jessi\Documents\docker-kurs\8-projekt\backend\api.js:\backend\api.js
     depends_on:
       - database
   frontend:
@@ -28,7 +28,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - C:\Users\jessi\Documents\docker-kurs\8-projekt\frontend\src:/frontend/src
+      - C:\Users\jessi\Documents\docker-kurs\8-projekt\frontend\src:\frontend\src
       # - frontend/node_modules = annonymes Volume
       # stdin_open: true
       # tty: interaktive mode
