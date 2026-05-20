@@ -1,0 +1,39 @@
+version: "3.8"
+
+services:
+  database:
+    image: "mongo"
+    volumes:
+      - data:/data/db
+    # environment:
+    #  - MONGO_INITDB_ROOT_USERNAME=admin
+    #  - MONGO_INITDB_ROOT_PASSWORD=secret
+    # environment:
+    #  MONGO_INITDB_ROOT_USERNAME: admin
+    #  MONGO_INITDB_ROOT_PASSWORD: secret
+    env_file:
+      - ./env/database.env
+  backend:
+    build: ./backend
+    environment:
+      PORT: 8080
+    ports:
+      - "8080:8080"
+    volumes:
+      - C:\Users\jessi\Documents\docker-kurs\8-projekt\backend\api.js:/backend/api.js
+    depends_on:
+      - database
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - C:\Users\jessi\Documents\docker-kurs\8-projekt\frontend\src:/frontend/src
+      # - frontend/node_modules = annonymes Volume
+      # stdin_open: true
+      # tty: interaktive mode
+    depends_on:
+      - backend
+
+volumes:
+  data:

@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 const app = express();
 app.use(bodyParser.json());
 
-mongoose.connect("mongodb://host.docker.internal:27017/shoppingcart", {
+mongoose.connect("mongodb://database:27017/shoppingcart", {
   useNewUrlParser: true,
 });
 
